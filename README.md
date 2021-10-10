@@ -29,4 +29,4 @@ yarn build
 ## License
 
 -   Miliband uses the MIT License, [summarised here](https://tldrlegal.com/license/mit-license).
--   The font Poppins is licensed under the Open Font License (OFL).
+-   The font [Poppins](https://fonts.google.com/specimen/Poppins) is licensed under the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
