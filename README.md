@@ -8,7 +8,7 @@ The site is powered by [sail](https://sailed.io/), a tool that supports the CLI 
 
 ## Theme
 
-The theme is powered by [lit.dev](https://lit.dev), a web components library that handles tree shaking and the web app. This is then bundled through [rollup](https://rollupjs.org/guide/en/) and made backwards compatible through [babel](https://babeljs.io/). This premise was inspired by [Hasani Rogers](http://blog.hasanirogers.me/2020/09/web-app-with-wordpress-and-litelement.html)'s blog post.
+The theme is powered by [lit.dev](https://lit.dev), a web components library that handles tree shaking and the web app. This is then bundled through [rollup](https://rollupjs.org/guide/en/) and made backwards compatible through [babel](https://babeljs.io/). This premise was inspired by Hasani Rogers's [blog post](http://blog.hasanirogers.me/2020/09/web-app-with-wordpress-and-litelement.html).
 
 ```bash
 gh repo clone https://github.com/JacobWeinbren/miliband.git
