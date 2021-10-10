@@ -4,7 +4,7 @@
 
 ## Site
 
-The site is powered by [sail](https://sailed.io/), a tool that covers the main CLI commands for Wordpress. It is tesed locally through [local-wp](https://localwp.com/).
+The site is powered by [sail](https://sailed.io/), a tool that supports the CLI for Wordpress. It is tesed locally through [local-wp](https://localwp.com/).
 
 ## Theme
 
