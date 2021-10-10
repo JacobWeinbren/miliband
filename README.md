@@ -4,21 +4,17 @@
 
 ## Site
 
-The site is powered by [sail](https://sailed.io/), a tool that covers the main CLI commands for Wordpress. It can be deployed through
-
-```bash
-gh repo clone https://github.com/JacobWeinbren/miliband.git
-cd miliband
-yarn install
-yarn build
-yarn deploy
-```
+The site is powered by [sail](https://sailed.io/), a tool that covers the main CLI commands for Wordpress. It is tesed locally through [local](https://localwp.com/).
 
 ## Theme
 
 The theme is powered by [lit.dev](htts://lit.dev), a web components library that handles tree shaking and the web app. This is then bundled through [rollup](https://rollupjs.org/guide/en/) and made backwards compatible through [babel](https://babeljs.io/).
 
 ```bash
+gh repo clone https://github.com/JacobWeinbren/miliband.git
+cd miliband
+yarn install
+
 #For Development
 yarn dev
 
