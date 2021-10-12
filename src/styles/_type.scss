@@ -1,0 +1,85 @@
+@use "sass:math";
+@use "variables" as *;
+@use "font";
+
+/* Applies Text Size */
+/* https://www.smashingmagazine.com/2020/07/css-techniques-legibility/ */
+body {
+    font-size: $text-sm;
+    font-family: $font;
+    color: $text;
+    background: $inverse;
+    font-weight: $base-weight;
+}
+
+h1 {
+    font-size: $text-xxl;
+    line-height: $line-lg;
+    margin-bottom: $line-lg;
+}
+
+h2 {
+    font-size: $text-xl;
+    line-height: $line-lg;
+    margin-bottom: $line-lg;
+}
+
+h3 {
+    font-size: $text-lg;
+    line-height: $line-md;
+    margin-bottom: $line-md;
+}
+
+h4 {
+    font-size: $text-md;
+    line-height: $line-md;
+    margin-bottom: $line-md;
+}
+
+p,
+ol,
+ul {
+    font-size: $text-sm;
+    line-height: $line-sm;
+    margin-bottom: $line-sm;
+}
+
+p,
+em,
+strong {
+    width: 60ch;
+    max-width: 100%;
+}
+
+h5,
+small,
+h6 {
+    font-size: $text-xs;
+    line-height: $line-sm;
+    margin-bottom: $line-sm;
+}
+
+strong {
+    font-weight: $heading-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $heading-weight;
+
+    a {
+        color: col($black, 400);
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+@supports (font-size-adjust: 1) {
+    article {
+        font-size-adjust: 0.5;
+    }
+}
