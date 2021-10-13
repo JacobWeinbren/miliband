@@ -1,6 +1,5 @@
 //SYS
 import resolve from "@rollup/plugin-node-resolve";
-import copy from "rollup-plugin-copy";
 import execute from "rollup-plugin-execute";
 
 //CSS
@@ -17,7 +16,7 @@ const production = !process.env.ROLLUP_WATCH;
 
 export default [
 	{
-		input: ["src/app.ts", "src/styles/theme.scss"],
+		input: ["src/main.ts", "src/styles/theme.scss"],
 		output: {
 			dir: "dist",
 			format: "esm",
@@ -32,11 +31,8 @@ export default [
 			//Main functions
 			postcss({
 				plugins: [autoprefixer],
-				extract: "theme.css",
+				extract: "styles/theme.css",
 				minimize: production,
-			}),
-			copy({
-				targets: [{ src: "src/styles/fonts", dest: "dist" }],
 			}),
 			resolve(),
 			esbuild({ ts: true }),

@@ -1,13 +1,18 @@
 {
     "presets": [
+        //Typescript Support
         "@babel/typescript",
+        //Solves micromanaging polyfills
         [
             "@babel/preset-env",
             {
+                //Reads package.json
                 "useBuiltIns": "usage",
+                //Loads polyfills
                 "corejs": 3.8
             }
         ]
     ],
+    //Loads helper files for babel
     "plugins": ["@babel/plugin-transform-runtime"]
 }

@@ -1,18 +1,18 @@
 <?php
 
-// Loads in code
+//Loads in code
 function miliband_scripts()
 {
-	wp_enqueue_style("style", get_template_directory_uri() . "/dist/main.css");
+	wp_enqueue_style("style", get_template_directory_uri() . "/dist/theme.css");
 	wp_enqueue_script("code", get_template_directory_uri() . "/dist/main.js");
 }
 
-// Adds in attribution for images
+//Adds in attribution for images
 function add_field($form_fields, $post)
 {
 	$field_value = get_post_meta($post->ID, "attribution", true);
 
-	// Attribution Name
+	//Attribution Name
 	$form_fields["attribution_name"] = [
 		"label" => __("Attribution Name"),
 		"input" => "text",
@@ -20,7 +20,7 @@ function add_field($form_fields, $post)
 		"helps" => __("Name of Artist"),
 	];
 
-	// Attribution Site
+	//Attribution Site
 	$form_fields["attribution_site"] = [
 		"label" => __("Attribution Site"),
 		"input" => "text",
@@ -30,7 +30,7 @@ function add_field($form_fields, $post)
 		),
 	];
 
-	// Attribution Source
+	//Attribution Source
 	$form_fields["attribution_source"] = [
 		"label" => __("Attribution Source"),
 		"input" => "text",
@@ -43,7 +43,7 @@ function add_field($form_fields, $post)
 	return $form_fields;
 }
 
-// Assigns the posts meta value to attribute
+//Assigns the posts meta value to attribute
 function test_attachment($attachment_id, $attachment_attribute) {
 	if (isset($_REQUEST["attachments"][$attachment_id][$attachment_attribute])) {
 		$custom_media_style =
@@ -54,23 +54,23 @@ function test_attachment($attachment_id, $attachment_attribute) {
 
 function save_attachment($attachment_id)
 {	
-	// Attribution Name
+	//Attribution Name
 	test_attachment($attachment_id, "attribution_name");
 
-	// Attribution Site
+	//Attribution Site
 	test_attachment($attachment_id, "attribution_site");
 
-	// Attribution Source
+	//Attribution Source
 	test_attachment($attachment_id, "attribution_source");
 }
 
-// Adds attribution to pictures
+//Adds attribution to pictures
 add_filter("attachment_fields_to_edit", "add_field", null, 2);
 add_action("edit_attachment", "save_attachment");
 
-// Loads Scripts
+//Loads Scripts
 add_action("wp_enqueue_scripts", "miliband_scripts");
 
-// Adds in extra theme support
+//Adds in extra theme support
 add_theme_support("title-tag");
 add_theme_support("post-thumbnails");
