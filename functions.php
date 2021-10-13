@@ -3,7 +3,7 @@
 //Loads in code
 function miliband_scripts()
 {
-	wp_enqueue_style("style", get_template_directory_uri() . "/dist/theme.css");
+	wp_enqueue_style("style", get_template_directory_uri() . "/dist/styles/theme.css");
 	wp_enqueue_script("code", get_template_directory_uri() . "/dist/main.js");
 }
 
