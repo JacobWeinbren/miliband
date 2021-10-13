@@ -1,51 +1,76 @@
 <?php
 
-function miliband_scripts() {
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/dist/main.css');
-	wp_enqueue_script( 'code', get_template_directory_uri() . '/dist/main.js');
+// Loads in code
+function miliband_scripts()
+{
+	wp_enqueue_style("style", get_template_directory_uri() . "/dist/main.css");
+	wp_enqueue_script("code", get_template_directory_uri() . "/dist/main.js");
 }
 
-function add_field( $form_fields, $post ) {
-	$field_value = get_post_meta( $post->ID, 'attribution', true );
+// Adds in attribution for images
+function add_field($form_fields, $post)
+{
+	$field_value = get_post_meta($post->ID, "attribution", true);
 
-	$form_fields['attribution'] = array(
-		'value' => $field_value ? $field_value : '',
-		'label' => __( 'Attribution' ),
-	);
+	// Attribution Name
+	$form_fields["attribution_name"] = [
+		"label" => __("Attribution Name"),
+		"input" => "text",
+		"value" => $field_value ? $field_value : "",
+		"helps" => __("Name of Artist"),
+	];
 
-	$form_fields["attribution"]["extra_rows"] = array(
-		"_none1" => "Format is <b>Name/[Site]/Source</b>",
-		"_none2" => "For example, <b>Joseph Hamms/The Tribune/Getty Images",
-		"_none3" => "Add additional information with extra dashes, if applicable in case of license",
-	);
+	// Attribution Site
+	$form_fields["attribution_site"] = [
+		"label" => __("Attribution Site"),
+		"input" => "text",
+		"value" => $field_value ? $field_value : "",
+		"helps" => __(
+			"Optional: Name of Site, this is the site or company responsible for the picture."
+		),
+	];
+
+	// Attribution Source
+	$form_fields["attribution_source"] = [
+		"label" => __("Attribution Source"),
+		"input" => "text",
+		"value" => $field_value ? $field_value : "",
+		"helps" => __(
+			"Name of Source. Typically this is the aggregator, such as Creative Commons or GettyPictures"
+		),
+	];
 
 	return $form_fields;
 }
-add_filter( 'attachment_fields_to_edit', 'add_field', null, 2 );
 
-function save_attachment( $attachment_id ) {
-	if ( isset( $_REQUEST['attachments'][ $attachment_id ]['attribution'] ) ) {
-		$custom_media_style = $_REQUEST['attachments'][ $attachment_id ]['attribution'];
-		update_post_meta( $attachment_id, 'attribution', $custom_media_style );
-
+// Assigns the posts meta value to attribute
+function test_attachment($attachment_id, $attachment_attribute) {
+	if (isset($_REQUEST["attachments"][$attachment_id][$attachment_attribute])) {
+		$custom_media_style =
+			$_REQUEST["attachments"][$attachment_id][$attachment_attribute];
+		update_post_meta($attachment_id, $attachment_attribute, $custom_media_style);
 	}
 }
-add_action( 'edit_attachment', 'save_attachment' );
 
-function add_defer_attribute($tag, $handle, $src) {
-	if ( 'miliband_scripts' !== $handle ) {
-		return $tag;
-	}
-	$tag = '<script defer="defer" src="' . esc_url( $src ) . '"></script>';
-	return $tag;
+function save_attachment($attachment_id)
+{	
+	// Attribution Name
+	test_attachment($attachment_id, "attribution_name");
+
+	// Attribution Site
+	test_attachment($attachment_id, "attribution_site");
+
+	// Attribution Source
+	test_attachment($attachment_id, "attribution_source");
 }
 
-add_action( 'wp_enqueue_scripts', 'miliband_scripts' );
-add_filter( 'script_loader_tag', function ( $tag, $handle ) {
-	if ( 'main' !== $handle )
-		return $tag;
-	return str_replace( ' src', ' defer="defer" src', $tag );
-}, 10, 2 );
+// Adds attribution to pictures
+add_filter("attachment_fields_to_edit", "add_field", null, 2);
+add_action("edit_attachment", "save_attachment");
 
-add_theme_support( 'title-tag' );
-add_theme_support( 'post-thumbnails' );
+// Loads Scripts
+add_action("wp_enqueue_scripts", "miliband_scripts");
+
+// Adds in extra theme support
+add_theme_support("title-tag");
+add_theme_support("post-thumbnails");
