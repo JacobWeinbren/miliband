@@ -26,8 +26,20 @@
 
 	<body>
 
-		<nav class="header">
-			<a href="/" class="logo" alt="The Social Review Logo">
-				<img class="logo" src="<?php echo $directory; ?>/assets/images/logo.png" />
-			</a>
-		</nav>
+		<div class="nav-container lightred">
+			<nav class="header">
+				<a href="/" class="logo">
+					<span class="screen-reader-text">
+						The Social Review Home
+					</span>
+					<img class="logo_default" alt="The Social Review Logo" src="<?php echo $directory; ?>/assets/images/logo.png" />
+				</a>
+				<div class="nav-links">
+					<a href="/">Podcast</a>
+					<a href="/">Newsletter</a>
+					<a href="/">Donate</a>
+					<a href="/">Submissions</a>
+					<a href="/">Contact</a>
+				</div>
+			</nav>
+		</div>

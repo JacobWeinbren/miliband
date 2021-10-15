@@ -1,14 +1,21 @@
 @use "sass:meta";
 @use "type";
 @use "variables";
+@use "html";
 
 /* Components */
 @use "components/nav";
 
 /* Reset */
 
-* {
+html {
     box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 body {

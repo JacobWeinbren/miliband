@@ -1,23 +1,48 @@
 @use "../variables" as *;
 
 nav.header {
-    max-width: space("xxxxl", 23);
+    max-width: space("xxxxl", 19);
     margin: 0 auto;
-    padding: space("xs") space("xxl");
-    display: flex;
-    background: $inverse;
-    box-sizing: border-box;
+    padding: space("sm") space("sm");
 
-    > .logo {
-        padding: space("lg") space("xs");
-        margin-right: space("lg", 2);
+    display: flex;
+
+    .logo {
+        height: space("lg");
 
         img {
-            height: space("sm", 2);
+            transition: $transition-medium all;
+            pointer-events: none;
+            padding: space("xxs") 0;
+            width: auto;
+            height: 100%;
         }
 
         &:hover {
-            filter: brightness(95%);
+            /* ##BA4B4B Red Contrast of 4.54 */
+            img {
+                filter: brightness(84%);
+            }
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-top: auto;
+        line-height: 0;
+        //SR 388px and the TSR is 714px = 54.34
+        height: space("lg") * 0.5434;
+
+        a {
+            font-weight: 700;
+            margin-left: space("xl");
+            padding: space("xxs") 0;
+            line-height: 1;
+            text-decoration: none;
+            color: col($black, 300);
+            display: inline-block;
         }
     }
 }

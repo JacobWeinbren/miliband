@@ -16,8 +16,9 @@ Colours
 
 //From https://coolors.co/
 $black: #0c0c0c;
-$purple: #963eff;
+$purple: #665aaa;
 $pink: #ff70a6;
+$navy: #5a7baa;
 $blue: #3cf;
 $yellow: #fce354;
 $green: #1ee592;
@@ -41,7 +42,7 @@ $white-pure: #fff;
 $black-pure: #000;
 
 $colour-key: (
-    25: 3%,
+    25: 8%,
     50: 12%,
     100: 30%,
     200: 50%,
@@ -83,6 +84,8 @@ $space-unit: 1rem;
 
 $space-def: (
     // extra small
+    "xxxs": 0.1,
+    "xxs": 0.25,
     "xs": 0.5,
     //small
     "sm": 1,
@@ -113,9 +116,7 @@ $breakpoints: (
     //64
     "md": space("xxxxl", 16),
     //80
-    "lg": space("xxxxl", 20),
-    //92
-    "xl": space("xxxxl", 23)
+    "lg": space("xxxxl", 28)
 );
 
 //https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
@@ -152,7 +153,7 @@ $border-radius-l: 8px;
 /* https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd */
 /* https://codyhouse.co/ds/docs/framework/typography */
 $font: "Poppins", Helvetica, Arial, sans-serif;
-$text: col($black);
+$text: $black;
 $inverse: $white-pure;
 $base-size: 1em;
 $base-weight: 400;

@@ -1,0 +1,40 @@
+@use "variables" as *;
+
+/* Links */
+a {
+	display: flex;
+	transition: $transition-medium all;
+	outline: none;
+	position: relative;
+
+	&:not(.logo, &:focus, &:active):hover {
+		box-shadow: 0 1px 0 0 $black;
+	}
+
+	/* Adding a border to psuedo :after */
+	&:after {
+		transition: $transition-medium all;
+		content: "";
+		height: 100%;
+		display: block;
+		position: absolute;
+		width: calc(100% + #{2 * space("xxxs", 3)});
+		padding: 0 space("xxxs", 3);
+		border-radius: 3px;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	/* Activates :after border */
+	&:focus,
+	&:active {
+		&:after {
+			box-shadow: 0 0 0 2px $purple;
+		}
+	}
+}
+
+.lightred {
+	background: col($brand, 25);
+}
