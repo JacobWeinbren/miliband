@@ -28,21 +28,22 @@ nav.header {
 
     .nav-links {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         margin-left: auto;
         margin-top: auto;
         line-height: 0;
-        //SR 388px and the TSR is 714px = 54.34
-        height: space("lg") * 0.5434;
+        //SR 605px and the TSR is 714px = 84.73
+        height: space("lg") * 0.8473;
 
         a {
             font-weight: 700;
             margin-left: space("xl");
-            padding: space("xxs") 0;
-            line-height: 1;
+            line-height: $line-lg;
             text-decoration: none;
             color: col($black, 300);
             display: inline-block;
+
+            padding: space("xxxs", 3) 0;
         }
     }
 }
