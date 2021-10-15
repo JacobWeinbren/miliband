@@ -7,11 +7,14 @@ a {
 	outline: none;
 	position: relative;
 
-	&:not(.logo, &:focus, &:active):hover {
+	&:not(.logo):hover {
 		box-shadow: inset 0 -1px 0 0 $black;
 	}
 
-	/* Adding a border to psuedo :after */
+	/* 
+	Adding a border to psuedo :after which is wider.
+	This means the outer div ican be narrower.
+	*/
 	&:after {
 		transition: $transition-medium all;
 		content: "";

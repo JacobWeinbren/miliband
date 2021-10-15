@@ -33,17 +33,18 @@ nav.header {
         margin-top: auto;
         line-height: 0;
         //SR 605px and the TSR is 714px = 84.73
-        height: space("lg") * 0.8473;
+        max-height: space("lg") * 0.8473;
 
         a {
             font-weight: 700;
+
             margin-left: space("xl");
             line-height: $line-lg;
             text-decoration: none;
             color: col($black, 300);
             display: inline-block;
 
-            padding: space("xxxs", 3) 0;
+            padding: space("xxxs", 2) 0;
         }
     }
 }
