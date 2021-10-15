@@ -70,11 +70,6 @@ $colour-key: (
     }
 }
 
-//Colour defaults
-$mono-tint1: col($black, 100);
-$mono-tint2: col($black, 50);
-$mono-tint3: col($black, 25);
-
 /*
 Spacing
 */
@@ -114,16 +109,14 @@ $breakpoints: (
     //48
     "sm": space("xxxxl", 12),
     //64
-    "md": space("xxxxl", 16),
-    //80
-    "lg": space("xxxxl", 28)
+    "md": space("xxxxl", 16)
 );
 
 //https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
 //https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2b9/
 @mixin breakpoint($breakpoint) {
     @if map-has-key($breakpoints, $breakpoint) {
-        @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
             @content;
         }
     } @else {

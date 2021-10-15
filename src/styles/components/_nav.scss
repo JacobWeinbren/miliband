@@ -1,11 +1,17 @@
 @use "../variables" as *;
 
+.nav-container {
+    width: 100%;
+    padding: 0 space("md");
+    background: col($brand, 25);
+}
+
 nav.header {
+    display: flex;
     max-width: space("xxxxl", 19);
     margin: 0 auto;
-    padding: space("sm") space("sm");
-
-    display: flex;
+    border-bottom: 1px solid $black;
+    padding: space("sm") 0;
 
     .logo {
         height: space("lg");
@@ -13,9 +19,7 @@ nav.header {
         img {
             transition: $transition-medium all;
             pointer-events: none;
-            padding: space("xxs") 0;
-            width: auto;
-            height: 100%;
+            padding: space("xxxs", 2) 0;
         }
 
         &:hover {
@@ -35,16 +39,29 @@ nav.header {
         //SR 605px and the TSR is 714px = 84.73
         max-height: space("lg") * 0.8473;
 
-        a {
-            font-weight: 700;
+        @include breakpoint("md") {
+            display: none;
+        }
 
+        a {
             margin-left: space("xl");
             line-height: $line-lg;
             text-decoration: none;
-            color: col($black, 300);
+            color: col($black, 400);
             display: inline-block;
 
             padding: space("xxxs", 2) 0;
         }
+    }
+}
+
+/* Switches Padding to keep logo position */
+@include breakpoint("md") {
+    .nav-container {
+        padding: 0;
+    }
+
+    nav.header {
+        padding: space("sm") space("md");
     }
 }
