@@ -15,29 +15,29 @@ import { terser } from "rollup-plugin-terser";
 const production = !process.env.ROLLUP_WATCH;
 
 export default [
-	{
-		input: ["src/main.ts", "src/styles/theme.scss"],
-		output: {
-			dir: "dist",
-			format: "esm",
-			sourcemap: true,
-		},
-		plugins: [
-			//Backwards compatibility
-			babel({
-				babelHelpers: "bundled",
-				exclude: "node_modules/**",
-			}),
-			//Main functions
-			postcss({
-				plugins: [autoprefixer],
-				extract: "styles/theme.css",
-				minimize: production,
-			}),
-			resolve(),
-			esbuild({ ts: true }),
-			production && terser(),
-			execute("rm dist/theme.js dist/theme.js.map"),
-		],
-	},
+    {
+        input: ["src/main.ts", "src/styles/theme.scss"],
+        output: {
+            dir: "dist",
+            format: "esm",
+            sourcemap: true,
+        },
+        plugins: [
+            //Backwards compatibility
+            babel({
+                babelHelpers: "bundled",
+                exclude: "node_modules/**",
+            }),
+            //Main functions
+            postcss({
+                plugins: [autoprefixer],
+                extract: "styles/theme.css",
+                minimize: production,
+            }),
+            resolve(),
+            esbuild({ ts: true }),
+            production && terser(),
+            execute("rm dist/theme.js dist/theme.js.map"),
+        ],
+    },
 ];

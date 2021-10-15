@@ -1,50 +1,98 @@
-@use "../variables" as *;
+@use "../variables"as *;
 
 .nav-container {
     width: 100%;
-    padding: 0 space("md");
+    padding: 0 space("xxs", 7);
     background: col($brand, 25);
+
+    @include breakpoint("md") {
+        padding: 0;
+    }
 }
 
-nav.header {
+nav {
     display: flex;
-    max-width: space("xxxxl", 19);
+    max-width: space("xxxxl", 18);
     margin: 0 auto;
-    border-bottom: 1px solid $black;
-    padding: space("sm") 0;
 
-    .logo {
-        height: space("lg");
+    &.primary {
+        border-bottom: 1px solid $black;
+        padding: space("sm") 0;
 
-        img {
-            transition: $transition-medium all;
-            pointer-events: none;
-            padding: space("xxxs", 2) 0;
+        @include breakpoint("md") {
+            padding: space("sm") space("xxs", 7);
         }
 
-        &:hover {
-            /* ##BA4B4B Red Contrast of 4.54 */
+        .logo {
+            height: space("lg");
+
             img {
-                filter: brightness(84%);
+                transition: $transition-medium all;
+                pointer-events: none;
+                padding: space("xxxs", 2) 0;
+            }
+
+            &:hover {
+
+                /* ##BA4B4B Red Contrast of 4.54 */
+                img {
+                    filter: brightness(84%);
+                }
+            }
+        }
+
+        .nav-links {
+            align-items: flex-end;
+            margin-top: auto;
+            //SR 605px and the TSR is 714px = 84.73
+            max-height: space("lg") * 0.8473;
+
+            a {
+                margin-left: space("xl");
+            }
+        }
+    }
+
+    &.secondary {
+        padding: space("xs") 0;
+
+        @include breakpoint("md") {
+            display: none;
+        }
+
+        .nav-links {
+            align-items: center;
+
+            a {
+                margin: space("xs") 0 space("xs") space("xl");
             }
         }
     }
 
     .nav-links {
         display: flex;
-        align-items: flex-end;
-        margin-left: auto;
-        margin-top: auto;
-        line-height: 0;
-        //SR 605px and the TSR is 714px = 84.73
-        max-height: space("lg") * 0.8473;
 
         @include breakpoint("md") {
             display: none;
         }
 
-        a {
+        .link-divider {
+            height: 100%;
+            border-right: 1px solid $black;
             margin-left: space("xl");
+        }
+
+        &.right {
+            margin-left: auto;
+        }
+
+        &.left {
+            a:nth-of-type(1) {
+                margin-left: 0;
+            }
+        }
+
+        a {
             line-height: $line-lg;
             text-decoration: none;
             color: col($black, 400);
@@ -52,16 +100,5 @@ nav.header {
 
             padding: space("xxxs", 2) 0;
         }
-    }
-}
-
-/* Switches Padding to keep logo position */
-@include breakpoint("md") {
-    .nav-container {
-        padding: 0;
-    }
-
-    nav.header {
-        padding: space("sm") space("md");
     }
 }

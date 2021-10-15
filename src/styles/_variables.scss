@@ -26,8 +26,7 @@ $brand: #f04c53;
 $orange: #ff8f00;
 $white: #fff;
 
-$colours: (
-    "black": $black,
+$colours: ("black": $black,
     "purple": $purple,
     "pink": $pink,
     "blue": $blue,
@@ -41,8 +40,7 @@ $colours: (
 $white-pure: #fff;
 $black-pure: #000;
 
-$colour-key: (
-    25: 8%,
+$colour-key: (25: 8%,
     50: 12%,
     100: 30%,
     200: 50%,
@@ -60,12 +58,12 @@ $colour-key: (
     $baseDark: multiply($colour, $colour);
 
     @if $multiply <=500 {
-        @return color.mix(
-            $colour,
+        @return color.mix($colour,
             $white-pure,
-            map.get($colour-key, $multiply)
-        );
-    } @else {
+            map.get($colour-key, $multiply));
+    }
+
+    @else {
         @return color.mix($colour, $baseDark, map.get($colour-key, $multiply));
     }
 }
@@ -77,8 +75,7 @@ Spacing
 //Sets base value for spacing
 $space-unit: 1rem;
 
-$space-def: (
-    // extra small
+$space-def: ( // extra small
     "xxxs": 0.1,
     "xxs": 0.25,
     "xs": 0.5,
@@ -92,8 +89,7 @@ $space-def: (
     "xl": 2.5,
     "xxl": 3,
     "xxxl": 3.5,
-    "xxxxl": 4
-);
+    "xxxxl": 4);
 
 @function space($level, $multiply: 1) {
     @return $multiply * map.get($space-def, $level) * $space-unit;
@@ -103,14 +99,12 @@ $space-def: (
 Breakpoints
 */
 
-$breakpoints: (
-    //32
+$breakpoints: ( //32
     "xs": space("xxxxl", 8),
     //48
     "sm": space("xxxxl", 12),
     //64
-    "md": space("xxxxl", 16)
-);
+    "md": space("xxxxl", 16));
 
 //https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
 //https://medium.com/codyhouse/create-your-design-system-part-4-spacing-895c9213e2b9/
@@ -119,9 +113,11 @@ $breakpoints: (
         @media (max-width: map-get($breakpoints, $breakpoint)) {
             @content;
         }
-    } @else {
+    }
+
+    @else {
         @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+        +"Available breakpoints are: #{map-keys($breakpoints)}.";
     }
 }
 
@@ -141,11 +137,16 @@ $border-radius-s: 2px;
 $border-radius-m: 4px;
 $border-radius-l: 8px;
 
-/*Font */
+/*
+Font 
+*/
 
 /* https://medium.com/codyhouse/create-your-design-system-part-1-typography-7c630d9092bd */
 /* https://codyhouse.co/ds/docs/framework/typography */
-$font: "Poppins", Helvetica, Arial, sans-serif;
+$font: "Poppins",
+Helvetica,
+Arial,
+sans-serif;
 $text: $black;
 $inverse: $white-pure;
 $base-size: 1em;
