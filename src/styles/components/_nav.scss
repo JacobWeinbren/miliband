@@ -6,7 +6,7 @@
     padding: 0 space("lg");
     background: col($brand, 25);
 
-    /* Reveals horizontal divider on small screens */
+    //Reveals horizontal divider on small screens
     border-bottom: 1px solid transparent;
 
     @include breakpoint("md") {
@@ -22,6 +22,11 @@ nav {
     //To keep skip button relative to navbar
     position: relative;
 
+    //Includes logo
+    .nav-link {
+        padding: 0 space("xxxs", 3);
+    }
+
     //Skip link
     .skip-link {
         background: col($brand, 25);
@@ -30,6 +35,8 @@ nav {
         padding: space("sm") space("lg");
         z-index: 2;
         top: 0;
+        //The same as the padding for .nav-link
+        left: space("xxxs", 3);
         transform: translateY(-100%);
 
         text-decoration: none;
@@ -57,7 +64,6 @@ nav {
 
         .logo {
             height: space("lg");
-            padding: 0 space("xxxs", 3);
 
             img {
                 transition: $transition-medium all;
@@ -114,19 +120,18 @@ nav {
         }
     }
 
-    //Determines links
+    //Determines link positioning
     .nav-links {
         display: flex;
-
-        @include breakpoint("md") {
-            display: none;
-        }
 
         .nav-link {
             text-decoration: none;
             color: col($black, 400);
             display: inline-block;
-            padding: 0 space("xxxs", 3);
+        }
+
+        @include breakpoint("md") {
+            display: none;
         }
 
         //Right links float to the right
