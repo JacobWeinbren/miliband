@@ -14,11 +14,11 @@ a {
     &:after {
         transition: $transition-medium all;
         content: "";
-        height: calc(100% + #{2 * space("xxxs", 2)});
+        height: 100%;
         display: block;
         position: absolute;
         width: calc(100% + #{2 * space("xxxs", 3)});
-        padding: space("xxxs", 2) space("xxxs", 3);
+        padding: 0 space("xxxs", 3);
         border: 2px solid transparent;
         border-radius: 3px;
         top: 50%;
@@ -37,11 +37,10 @@ a {
     &:before {
         transition: $transition-medium all;
         content: "";
-        height: calc(100% + #{2 * space("xxxs", 2)});
+        height: 100%;
         display: block;
         position: absolute;
         width: 100%;
-        padding: space("xxxs", 2);
         border: 2px solid transparent;
         border-radius: 3px;
         top: 50%;
