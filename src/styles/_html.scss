@@ -7,10 +7,6 @@ a {
     outline: none;
     position: relative;
 
-    &:not(.logo):hover {
-        box-shadow: inset 0 -1px 0 0 $black;
-    }
-
     /* 
 	Adding a border to psuedo :after which is wider.
 	This means the outer div ican be narrower.
@@ -18,23 +14,44 @@ a {
     &:after {
         transition: $transition-medium all;
         content: "";
-        height: 100%;
+        height: calc(100% + #{2 * space("xxxs", 2)});
         display: block;
         position: absolute;
         width: calc(100% + #{2 * space("xxxs", 3)});
-        padding: 0 space("xxxs", 3);
-        border: 2px solid rgba(0, 0, 0, 0);
+        padding: space("xxxs", 2) space("xxxs", 3);
+        border: 2px solid transparent;
         border-radius: 3px;
-        top: 0;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(-50%);
     }
 
     /* Activates :after border */
     &:focus,
     &:active {
         &:after {
-            border: 2px solid $purple;
+            border: 2px solid $navy;
+        }
+    }
+
+    &:before {
+        transition: $transition-medium all;
+        content: "";
+        height: calc(100% + #{2 * space("xxxs", 2)});
+        display: block;
+        position: absolute;
+        width: 100%;
+        padding: 0 space("xxxs", 3);
+        border: 2px solid transparent;
+        border-radius: 3px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    &:not(.logo, .skip-link):hover {
+        &:before {
+            border-bottom: 1px solid $black;
         }
     }
 }

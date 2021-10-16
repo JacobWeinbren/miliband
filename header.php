@@ -27,6 +27,7 @@
 
     <div class="nav-container">
         <nav class="primary" aria-label="Primary">
+            <a class="skip-link" href='#content'>Skip to content</a>
             <a href="/" class="logo">
                 <span class="screen-reader-text">
                     The Social Review Home
