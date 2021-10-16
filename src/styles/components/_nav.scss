@@ -1,6 +1,7 @@
 @use "../variables"as *;
 
 .nav-container {
+    font-family: "Fira Sans";
     width: 100%;
     padding: 0 space("xxs", 7);
     background: col($brand, 25);
@@ -91,8 +92,11 @@ nav {
             align-items: center;
 
             a {
-                /* xs + xs = sm (the padding on primary).
-                This is split to make the divider larger */
+                /* 
+                xs (secondary padding) + 
+                xs (a link margin) 
+                = sm (the padding on primary).
+                This is to accomodate the vertical divider */
                 margin: space("xs") 0 space("xs") space("xl");
             }
         }
@@ -118,7 +122,6 @@ nav {
             text-decoration: none;
             color: col($black, 400);
             display: inline-block;
-            padding: space("xxxs", 2) 0;
         }
 
         //Right links float to the right
