@@ -3,9 +3,10 @@
 .nav-container {
     font-family: "Fira Sans";
     width: 100%;
-    padding: 0 space("xxs", 7);
+    padding: 0 space("lg");
     background: col($brand, 25);
 
+    /* Reveals horizontal divider on small screens */
     border-bottom: 1px solid transparent;
 
     @include breakpoint("md") {
@@ -15,15 +16,18 @@
 
 nav {
     display: flex;
-    position: relative;
     max-width: space("xxxxl", 18);
     margin: 0 auto;
 
+    //To keep skip button relative to navbar
+    position: relative;
+
+    //Skip link
     .skip-link {
         background: col($brand, 25);
         color: col($black, 400);
         position: absolute;
-        padding: space("sm") space("xxs", 7);
+        padding: space("sm") space("lg");
         z-index: 2;
         top: 0;
         transform: translateY(-100%);
@@ -53,6 +57,7 @@ nav {
 
         .logo {
             height: space("lg");
+            padding: 0 space("xxxs", 3);
 
             img {
                 transition: $transition-medium all;
@@ -82,23 +87,23 @@ nav {
 
     //Secondary Nav
     &.secondary {
+
+        /* 
+        xs (secondary padding) + 
+        xs (a link margin) 
+        = sm (the padding on primary).
+        This is to accomodate the vertical divider 
+        */
         padding: space("xs") 0;
+
+        .nav-links {
+            a {
+                margin: space("xs") 0 space("xs") space("xl");
+            }
+        }
 
         @include breakpoint("md") {
             display: none;
-        }
-
-        .nav-links {
-            align-items: center;
-
-            a {
-                /* 
-                xs (secondary padding) + 
-                xs (a link margin) 
-                = sm (the padding on primary).
-                This is to accomodate the vertical divider */
-                margin: space("xs") 0 space("xs") space("xl");
-            }
         }
 
         //Vertical divider
@@ -117,32 +122,11 @@ nav {
             display: none;
         }
 
-        a {
-            line-height: $line-lg;
+        .nav-link {
             text-decoration: none;
             color: col($black, 400);
             display: inline-block;
-            padding: space("xxxs", 2) space("xxxs", 3);
-
-            &:before {
-                transition: $transition-medium all;
-                content: "";
-                height: 100%;
-                display: block;
-                position: absolute;
-                width: calc(100% - #{2 * space("xxxs", 3)});
-                border: 2px solid transparent;
-                border-radius: 3px;
-                top: 50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-            }
-
-            &:hover {
-                &:before {
-                    border-bottom: 1px solid $black;
-                }
-            }
+            padding: 0 space("xxxs", 3);
         }
 
         //Right links float to the right

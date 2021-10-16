@@ -28,31 +28,31 @@
     <div class="nav-container">
         <nav class="primary" aria-label="Primary">
             <a class="skip-link" href='#content'>Skip to content</a>
-            <a href="/" class="logo">
+            <a href="/" class="nav-link logo">
                 <span class="screen-reader-text">
                     The Social Review Home
                 </span>
                 <img class="logo_default" alt="The Social Review Logo" src="<?php echo $directory; ?>/assets/images/logo.png" />
             </a>
             <div class="nav-links right">
-                <a href="/">Podcast</a>
-                <a href="/">Newsletter</a>
-                <a href="/">Donate</a>
-                <a href="/">Submissions</a>
-                <a href="/">Contact</a>
+                <a class='nav-link' href="/">Podcast</a>
+                <a class='nav-link' href="/">Newsletter</a>
+                <a class='nav-link' href="/">Donate</a>
+                <a class='nav-link' href="/">Submissions</a>
+                <a class='nav-link' href="/">Contact</a>
             </div>
         </nav>
         <nav class="secondary" aria-label="Secondary">
             <div class="nav-links left">
-                <a href="/">The Month Ahead</a>
+                <a class='nav-link' href="/">The Month Ahead</a>
                 <div class="link-divider"></div>
-                <a href="/">Beyond Wesminster</a>
-                <a href="/">Trade Unions</a>
-                <a href="/">Beyond the UK</a>
+                <a class='nav-link' href="/">Beyond Wesminster</a>
+                <a class='nav-link' href="/">Trade Unions</a>
+                <a class='nav-link' href="/">Beyond the UK</a>
             </div>
             <div class="nav-links right ">
-                <a href="/">Categories</a>
-                <a href="/">Authors</a>
+                <a class='nav-link' href="/">Categories</a>
+                <a class='nav-link' href="/">Authors</a>
             </div>
         </nav>
     </div>
